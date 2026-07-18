@@ -2,10 +2,12 @@
 # sync-cdn.ps1
 #
 # Copies the jobpage-lk theme's static assets (style.css + assets/) and the
-# WordPress media library (wp-content/uploads/) from the live WP install into
-# THIS repo, then commits & pushes so jsDelivr serves the latest files.
+# WordPress media library (wp-content/uploads/) into THIS repo and pushes them so
+# jsDelivr serves the latest files. After a CONFIRMED push it then DELETES the
+# local wp-content/uploads/ files — their master copy now lives on the CDN, so the
+# WordPress uploads folder is kept empty. Theme files are never deleted.
 #
-# Run this whenever you add/change images or edit style.css:
+# Run this after adding/changing images or editing style.css:
 #     powershell -ExecutionPolicy Bypass -File .\sync-cdn.ps1
 # ---------------------------------------------------------------------------
 
@@ -35,9 +37,28 @@ if ($LASTEXITCODE -lt 8) { $LASTEXITCODE = 0 }
 
 git -C $PSScriptRoot add -A
 if (git -C $PSScriptRoot status --porcelain) {
-    git -C $PSScriptRoot commit -m ("Sync assets " + (Get-Date -Format 'yyyy-MM-dd HH:mm'))
+    git -C $PSScriptRoot commit -m ("Sync " + (Get-Date -Format 'yyyy-MM-dd HH:mm')) | Out-Null
     git -C $PSScriptRoot push
-    Write-Host "CDN assets synced & pushed. Give jsDelivr a moment (branch cache ~12h; purge if needed)."
 } else {
-    Write-Host "No changes to sync."
+    Write-Host "No new files to sync."
+}
+
+# Clean local uploads ONLY when the CDN repo is fully on GitHub. The uploads were
+# copied above BEFORE this point, so a clean tree with nothing un-pushed proves
+# every local image is now safely on jsDelivr. If the push failed, we keep the
+# local files so nothing is lost.
+git -C $PSScriptRoot fetch origin main --quiet 2>$null
+$unpushed = (git -C $PSScriptRoot rev-list "origin/main..HEAD" --count 2>$null)
+$dirty    = (git -C $PSScriptRoot status --porcelain)
+
+if ((-not $dirty) -and ('0' -eq $unpushed)) {
+    $srcUploads = Join-Path $src 'uploads'   # d:\xampp\htdocs\jobpage\wp-content\uploads
+    if (Test-Path $srcUploads) {
+        Get-ChildItem -Force $srcUploads -ErrorAction SilentlyContinue |
+            Remove-Item -Recurse -Force -ErrorAction SilentlyContinue
+    }
+    Write-Host "Synced & pushed. Local uploads cleaned — images now served from the CDN (jsDelivr)."
+    Write-Host "If a just-pushed image still 404s, purge: https://purge.jsdelivr.net/gh/TDevPortal/jp-wp-assets@main/wp-content/uploads/<path>"
+} else {
+    Write-Host "PUSH NOT CONFIRMED (unpushed=$unpushed). Local uploads KEPT — fix auth/network and re-run."
 }
