@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Private jobs">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9f67f0"/>
+      <stop offset="1" stop-color="#4c1d95"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="120" fill="url(#g)"/>
+  <g fill="#ffffff" fill-opacity=".08">
+    <circle cx="300" cy="14" r="72"/>
+    <circle cx="374" cy="106" r="42"/>
+  </g>
+  <g transform="translate(270 22) scale(3.1)" fill="#ffffff" fill-opacity=".9">
+    <path d="M9 3h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3V5a2 2 0 0 1 2-2zm0 2v2h6V5H9z"/>
+    <rect x="10.4" y="12" width="3.2" height="2.4" rx=".6" fill-opacity=".55"/>
+  </g>
+</svg>

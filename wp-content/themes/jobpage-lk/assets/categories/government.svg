@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="120" viewBox="0 0 400 120" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Government jobs">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#facc15"/>
+      <stop offset="1" stop-color="#a16207"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="120" fill="url(#g)"/>
+  <g fill="#ffffff" fill-opacity=".08">
+    <circle cx="300" cy="14" r="72"/>
+    <circle cx="374" cy="106" r="42"/>
+  </g>
+  <g transform="translate(270 22) scale(3.1)" fill="#ffffff" fill-opacity=".9">
+    <path d="M12 2 2 8h20z"/>
+    <rect x="3.4" y="9.2" width="2.3" height="8.6"/>
+    <rect x="7.9" y="9.2" width="2.3" height="8.6"/>
+    <rect x="12.4" y="9.2" width="2.3" height="8.6"/>
+    <rect x="16.9" y="9.2" width="2.3" height="8.6"/>
+    <rect x="1.5" y="18.8" width="21" height="2.6" rx=".6"/>
+  </g>
+</svg>
