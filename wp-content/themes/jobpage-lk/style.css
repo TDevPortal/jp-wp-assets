@@ -156,6 +156,9 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
   text-shadow:0 1px 2px rgba(0,0,0,.18);
 }
 .mainnav a:hover{background:rgba(255,255,255,.16);}
+/* Long category names get a shorter mobile-only label (swapped in below 760px);
+   desktop always shows the full name. */
+.mainnav .nav-short{display:none;}
 .mainnav .current-menu-item>a,.mainnav li.active>a{background:rgba(0,0,0,.18);}
 /* "|" divider between top-level category names (not after the last one). */
 .mainnav>.container>ul>li:not(:last-child)::after{
@@ -680,7 +683,13 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
   /* Tighter vertical spacing between job cards on mobile. */
   .posts-grid{grid-template-columns:1fr;gap:10px;}
   .card{padding-bottom:10px;}
-  .mainnav a{font-size:15px;padding:7px 8px;letter-spacing:.1px;}
+  /* The rainbow category bar previously wrapped to an uneven 3 lines. The
+     .nav-short label (below) shortens the one long name that mattered most; this
+     smaller font/padding does the rest, so the 7 categories reliably settle into
+     a clean 2 rows instead of 3. */
+  .mainnav a{font-size:14px;padding:7px 9px;letter-spacing:.1px;}
+  .mainnav .nav-full{display:none;}
+  .mainnav .nav-short{display:inline;}
 
   /* Give the card text column more breathing room on phones. */
   .card .thumb{width:128px;height:128px;}
@@ -717,8 +726,9 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
   .searchform button{padding:0 20px;}
   .lb-socials{gap:8px;}
   .linksbar .lb-right{gap:10px;}
-  /* Shrink links so all 7 categories fall onto 2 rows (4 + 3) on phones. */
-  .mainnav a{font-size:14px;padding:6px 5px;letter-spacing:0;}
+  /* Slightly tighter pills on the narrowest phones, so the 2-row wrap from the
+     760px query above still holds instead of spilling to a 3rd row. */
+  .mainnav a{font-size:13px;padding:6px 7px;letter-spacing:0;}
 
   /* Compact card so the title, Read More and Share never overflow. */
   .card{gap:12px;}
