@@ -312,11 +312,11 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
   padding-bottom:16px;margin:0 0 22px;border-bottom:1px solid #e5e7eb;
 }
 .trend-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px 18px;}
-.trend-card .trend-thumb{position:relative;border-radius:3px;overflow:hidden;background:#e5e7eb;margin-bottom:10px;}
-.trend-card .trend-thumb img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;}
+.trend-card .trend-thumb{position:relative;aspect-ratio:1/1;border-radius:3px;overflow:hidden;background:#e5e7eb;margin-bottom:10px;}
+.trend-card .trend-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 /* Company-logo tiles: show the whole logo on white, not cropped like a photo. */
 .trend-card .trend-thumb--logo{background:#fff;}
-.trend-card .trend-thumb--logo img{object-fit:contain;padding:12px;}
+.trend-card .trend-thumb--logo img{object-fit:contain;}
 .trend-card .trend-badge{
   position:absolute;top:0;right:0;background:#f5853f;color:#fff;font-weight:700;font-size:13px;
   padding:6px 9px;border-radius:0 0 0 4px;
@@ -360,8 +360,8 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
 .blog-section{padding:54px 0 6px;border-top:1px solid #eef0f2;margin-top:40px;}
 .blog-head{text-align:center;font-size:30px;font-weight:800;color:#1f2937;margin:0 0 40px;}
 .blog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;}
-.blog-card .blog-thumb{border-radius:4px;overflow:hidden;margin-bottom:18px;background:#e5e7eb;display:block;}
-.blog-card .blog-thumb img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;}
+.blog-card .blog-thumb{aspect-ratio:1/1;border-radius:4px;overflow:hidden;margin-bottom:18px;background:#e5e7eb;display:block;}
+.blog-card .blog-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 .blog-card h3{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;font-size:17px;line-height:1.2;font-weight:700;color:#1f2937;margin:0 0 14px;
   display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
 .blog-card h3 a:hover{color:var(--purple);}
@@ -399,7 +399,7 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
 .bd-related-list{display:flex;flex-direction:column;gap:16px;}
 .bd-related-item{display:flex;gap:12px;}
 .bd-rel-thumb{width:82px;height:62px;flex:none;border-radius:4px;overflow:hidden;background:#e5e7eb;}
-.bd-rel-thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+.bd-rel-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 .bd-rel-body h4{font-size:14px;font-weight:600;line-height:1.35;color:#1f2937;margin:0 0 5px;}
 .bd-rel-body h4 a:hover{color:var(--purple);}
 .bd-rel-date{font-size:12px;color:#9aa1ab;}
@@ -504,8 +504,8 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
 .related{margin-top:24px;padding-top:26px;border-top:1px solid #eef0f2;}
 .related-head{font-size:22px;color:#111827;margin:0 0 20px;}
 .related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
-.related-card .rc-thumb{display:block;border-radius:5px;overflow:hidden;background:#e5e7eb;margin-bottom:10px;}
-.related-card .rc-thumb img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;}
+.related-card .rc-thumb{display:block;aspect-ratio:1/1;border-radius:5px;overflow:hidden;background:#e5e7eb;margin-bottom:10px;}
+.related-card .rc-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
 .related-card .rc-date{display:flex;align-items:center;gap:6px;color:#9aa1ab;font-size:12px;margin-bottom:5px;}
 .related-card .rc-date svg{width:13px;height:13px;}
 .related-card h3{font-size:15px;font-weight:700;line-height:1.3;color:#1f2937;margin:0;
@@ -583,7 +583,7 @@ h1,h2,h3,h4{font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;margin:0
 
 /* Trending */
 .ftrend-img{position:relative;border-radius:3px;overflow:hidden;margin-bottom:14px;background:#e5e7eb;}
-.ftrend-img img{width:100%;height:200px;object-fit:cover;display:block;}
+.ftrend-img img{width:100%;height:200px;object-fit:cover;object-position:top;display:block;}
 .ftrend-img .fbadge{position:absolute;left:12px;bottom:12px;margin:0;}
 .ftrend-title{
   font-family:'Poppins','Segoe UI',system-ui,Arial,sans-serif;font-size:22px;font-weight:700;
